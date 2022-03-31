@@ -60,9 +60,9 @@ var tekenAlles = function () {
   // speler
 
   fill("white");
-  rect(mouseX - 25, mouseY - 25, 50, 50);
+  rect(mouseX - 25, 605, 50, 50);
   fill("black");
-  ellipse(mouseX, mouseY, 10, 10);
+  ellipse(mouseX, 630, 10, 10);
 
   // punten en health
 
