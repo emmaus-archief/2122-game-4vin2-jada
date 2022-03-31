@@ -52,7 +52,7 @@ var verwerkBotsing = function () {
 var tekenAlles = function () {
   // achtergrond
   createCanvas(1280, 720);
-  background('blue');
+  background('green');
   // vijand
 
   // kogel
