@@ -61,6 +61,8 @@ https://www.khanacademy.org/computing/computer-programming/programming
 https://p5js.org/reference/
 - informatie van Emmauscollege over game opdracht <br>
 https://emmauscollege.github.io/informatica/game/
+- KEYCODE INFO
+https://keycode.info/
 
 ## Credits
 - Game template van het Emmauscollege Rotterdam <br>
