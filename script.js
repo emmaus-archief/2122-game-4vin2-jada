@@ -32,10 +32,10 @@ var vijandY = 40; // y positie vijand
 var beweegAlles = function () {
   // speler
 if (keyIsDown(KEY_LEFT)) {
-  spelerX = spelerX - 5
+  spelerX = spelerX - 8
 };
 if (keyIsDown(KEY_RIGHT)) {
-  spelerX = spelerX + 5
+  spelerX = spelerX + 8
 };
 
  
@@ -51,6 +51,7 @@ if (keyIsDown(KEY_RIGHT)) {
  */
 var verwerkBotsing = function () {
   // botsing speler tegen vijand
+ 
 
   // botsing kogel tegen vijand
 
@@ -76,6 +77,11 @@ var tekenAlles = function () {
   ellipse(vijandX, vijandY, 50, 50); 
 
   vijandY += 5;
+
+  if (vijandY === 250) {
+    
+  };
+    
   //vijandX = random (20, 700);
 
   // kogel
