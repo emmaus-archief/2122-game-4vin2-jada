@@ -38,8 +38,10 @@ if (keyIsDown(KEY_RIGHT)) {
   spelerX = spelerX + 8
 };
 
- 
-  // vijand
+ // vijand
+ if (vijandY < 620) {
+   vijandY += 5
+ };
 
   // kogel
 };
@@ -52,12 +54,20 @@ if (keyIsDown(KEY_RIGHT)) {
 var verwerkBotsing = function () {
   // botsing speler tegen vijand
  
-
   // botsing kogel tegen vijand
 
   // update punten en health
+  
+  //vijand tegen grond
+  if (vijandY = 620){
+    checkGameOver
+    }
 
-};
+    else if (vijandY < 620) {
+      vijandY += 5
+    }
+
+}
 
 /**
  * Tekent spelscherm
@@ -78,12 +88,6 @@ var tekenAlles = function () {
 
   vijandY += 5;
 
-  if (vijandY === 250) {
-    
-  };
-    
-  //vijandX = random (20, 700);
-
   // kogel
 
   // speler
@@ -102,8 +106,7 @@ var tekenAlles = function () {
  * anders return false
  */
 var checkGameOver = function () {
-  // check of HP 0 is , of tijd op is, of ...
-  return false;
+  {return false};
 };
 
 /* ********************************************* */
@@ -138,7 +141,9 @@ function draw() {
     }
   }
   if (spelStatus === GAMEOVER) {
-    // teken game-over scherm
+    fill(0, 0, 0);
+    textSize(50);
+    text("GAMEOVER" , 500, 400);
 
-  }
+  };
 }
