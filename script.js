@@ -59,12 +59,8 @@ var verwerkBotsing = function () {
   // update punten en health
   
   //vijand tegen grond
-  if (vijandY = 620){
-    checkGameOver
-    }
-
-    else if (vijandY < 620) {
-      vijandY += 5
+  if (vijandY === 620){
+    console.log("botsing")
     }
 
 }
@@ -106,7 +102,9 @@ var tekenAlles = function () {
  * anders return false
  */
 var checkGameOver = function () {
+  if (vijandY === 620) 
   {return false};
+  
 };
 
 /* ********************************************* */
@@ -136,7 +134,7 @@ function draw() {
     beweegAlles();
     verwerkBotsing();
     tekenAlles();
-    if (checkGameOver()) {
+    if (checkGameOver) {
       spelStatus = GAMEOVER;
     }
   }
