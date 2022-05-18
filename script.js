@@ -59,7 +59,7 @@ var verwerkBotsing = function () {
   // update punten en health
   
   //vijand tegen grond
-  if (vijandY === 620){
+  if (vijandY >= 620){
     };
 
 }
@@ -101,10 +101,12 @@ var tekenAlles = function () {
  * anders return false
  */
 var checkGameOver = function () {
-  if (vijandY === 620) {
+  if (vijandY >= 620) {
     return true;
-  };
-}
+  } else {
+    return false;   
+  }
+};
 
 
 
@@ -132,15 +134,17 @@ function setup() {
  */
 function draw() {
   if (spelStatus === SPELEN) {
+    console.log("vijandY " + vijandY);
     beweegAlles();
     verwerkBotsing();
     tekenAlles();
-    if (checkGameOver = true) {
+    if (checkGameOver() === true) {
       spelStatus = GAMEOVER;
     };
   }
   
   if (spelStatus === GAMEOVER) {
+    console.log("GAMEOVER");
     fill(0, 0, 0);
     textSize(50);
     text("GAMEOVER" , 460, 400);
