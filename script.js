@@ -60,8 +60,7 @@ var verwerkBotsing = function () {
   
   //vijand tegen grond
   if (vijandY === 620){
-    console.log("botsing")
-    }
+    };
 
 }
 
@@ -102,10 +101,12 @@ var tekenAlles = function () {
  * anders return false
  */
 var checkGameOver = function () {
-  if (vijandY === 620) 
-  {return false};
-  
-};
+  if (vijandY === 620) {
+    return true;
+  };
+}
+
+
 
 /* ********************************************* */
 /* setup() en draw() functies / hoofdprogramma   */
@@ -134,14 +135,15 @@ function draw() {
     beweegAlles();
     verwerkBotsing();
     tekenAlles();
-    if (checkGameOver) {
+    if (checkGameOver = true) {
       spelStatus = GAMEOVER;
-    }
+    };
   }
+  
   if (spelStatus === GAMEOVER) {
     fill(0, 0, 0);
     textSize(50);
-    text("GAMEOVER" , 500, 400);
+    text("GAMEOVER" , 460, 400);
 
   };
 }
