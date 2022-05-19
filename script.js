@@ -12,6 +12,7 @@
 
 const SPELEN = 1;
 const GAMEOVER = 2;
+const UITLEG = 8;
 var spelStatus = SPELEN;
 const KEY_LEFT = 37;
 const KEY_RIGHT = 39;
@@ -60,7 +61,7 @@ var verwerkBotsing = function () {
   
   //vijand tegen grond
   if (vijandY >= 620){
-    };
+  };
 
 }
 
@@ -140,7 +141,8 @@ function draw() {
     tekenAlles();
     if (checkGameOver() === true) {
       spelStatus = GAMEOVER;
-    };
+      console.log("spelen");
+    }
   }
   
   if (spelStatus === GAMEOVER) {
@@ -149,5 +151,21 @@ function draw() {
     textSize(50);
     text("GAMEOVER" , 460, 400);
 
-  };
-}
+    fill(0, 0, 0);
+    textSize(30);
+    text("press spatie to respawn", 447, 450);
+
+    if (keyIsDown(32)) { //spatie
+    spelStatus === UITLEG;
+    }
+
+  }
+
+  if (spelStatus === UITLEG) {
+    console.log("uitleg")
+    spelerX = 600;
+    spelStatus === SPELEN;
+    fill("0, 0, 0");
+    textSize(40);
+    text("Beweeg de 2 pijlen van links en rechts om je tank te bewegen, druk op de bovenste pijl om een kogel af te vuren. Laat de tanks niet op de grond komen, dan ben je af.");
+  }
