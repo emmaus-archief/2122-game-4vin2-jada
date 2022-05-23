@@ -9,7 +9,7 @@
 /* ********************************************* */
 /* globale variabelen die je gebruikt in je game */
 /* ********************************************* */
-
+var aantal = 0;
 const SPELEN = 1;
 const GAMEOVER = 2;
 const UITLEG = 8;
@@ -20,7 +20,7 @@ const KEY_RIGHT = 39;
 var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
 
-var vijandX = 595; // x positie vijand
+var vijandX = 400; // x positie vijand
 var vijandY = 40; // y positie vijand
 
 /* ********************************************* */
@@ -41,7 +41,7 @@ if (keyIsDown(KEY_RIGHT)) {
 
  // vijand
  if (vijandY < 620) {
-   vijandY += 5
+   vijandY += 3
  };
 
   // kogel
@@ -60,8 +60,7 @@ var verwerkBotsing = function () {
   // update punten en health
   
   //vijand tegen grond
-  if (vijandY >= 620){
-  };
+
 
 }
 
@@ -103,6 +102,8 @@ var tekenAlles = function () {
  */
 var checkGameOver = function () {
   if (vijandY >= 620) {
+    aantal = aantal + 1;
+    console.log("botsing" + aantal)
     return true;
   } else {
     return false;   
@@ -139,11 +140,13 @@ function draw() {
     beweegAlles();
     verwerkBotsing();
     tekenAlles();
-    if (checkGameOver() === true) {
-      spelStatus = GAMEOVER;
-      console.log("spelen");
-    }
   }
+    if (checkGameOver()) {
+      spelStatus = GAMEOVER;
+      }
+      console.log("game over");
+  }
+  
   
   if (spelStatus === GAMEOVER) {
     console.log("GAMEOVER");
@@ -162,10 +165,10 @@ function draw() {
   }
 
   if (spelStatus === UITLEG) {
-    console.log("uitleg")
+    console.log("uitleg");
     spelerX = 600;
     spelStatus === SPELEN;
     fill("0, 0, 0");
     textSize(40);
     text("Beweeg de 2 pijlen van links en rechts om je tank te bewegen, druk op de bovenste pijl om een kogel af te vuren. Laat de tanks niet op de grond komen, dan ben je af.");
-  }
+  } 
