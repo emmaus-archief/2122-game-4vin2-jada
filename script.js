@@ -12,7 +12,7 @@
 var aantal = 0;
 const SPELEN = 1;
 const GAMEOVER = 2;
-const UITLEG = 8;
+const UITLEG = 3;
 var spelStatus = SPELEN;
 const KEY_LEFT = 37;
 const KEY_RIGHT = 39;
@@ -41,7 +41,7 @@ if (keyIsDown(KEY_RIGHT)) {
 
  // vijand
  if (vijandY < 620) {
-   vijandY += 3
+   vijandY += 1
  };
 
   // kogel
@@ -82,7 +82,7 @@ var tekenAlles = function () {
   ellipse(vijandX, vijandY, 50, 50); 
 
   vijandY += 5;
-
+   console.log("vijandY="+vijandY);
   // kogel
 
   // speler
@@ -103,7 +103,7 @@ var tekenAlles = function () {
 var checkGameOver = function () {
   if (vijandY >= 620) {
     aantal = aantal + 1;
-    console.log("botsing" + aantal)
+    //console.log("botsing" + aantal)
     return true;
   } else {
     return false;   
@@ -143,9 +143,10 @@ function draw() {
   }
     if (checkGameOver()) {
       spelStatus = GAMEOVER;
-      }
       console.log("game over");
-  }
+      }
+
+  
   
   
   if (spelStatus === GAMEOVER) {
@@ -160,15 +161,17 @@ function draw() {
 
     if (keyIsDown(32)) { //spatie
     spelStatus === UITLEG;
-    }
+     }
 
   }
 
   if (spelStatus === UITLEG) {
     console.log("uitleg");
+    background("lightblue");
     spelerX = 600;
     spelStatus === SPELEN;
     fill("0, 0, 0");
     textSize(40);
     text("Beweeg de 2 pijlen van links en rechts om je tank te bewegen, druk op de bovenste pijl om een kogel af te vuren. Laat de tanks niet op de grond komen, dan ben je af.");
   } 
+}
