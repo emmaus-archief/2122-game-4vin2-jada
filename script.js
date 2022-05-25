@@ -10,10 +10,12 @@
 /* globale variabelen die je gebruikt in je game */
 /* ********************************************* */
 var aantal = 0;
+
 const SPELEN = 1;
 const GAMEOVER = 2;
-const UITLEG = 3;
-var spelStatus = SPELEN;
+const UITLEG = 8;
+var spelStatus = UITLEG;
+
 const KEY_LEFT = 37;
 const KEY_RIGHT = 39;
 
@@ -45,7 +47,7 @@ if (keyIsDown(KEY_RIGHT)) {
  };
 
   // kogel
-};
+}
 
 /**
  * Checkt botsingen
@@ -82,7 +84,7 @@ var tekenAlles = function () {
   ellipse(vijandX, vijandY, 50, 50); 
 
   vijandY += 5;
-   console.log("vijandY="+vijandY);
+   console.log ("vijandY =" + vijandY);
   // kogel
 
   // speler
@@ -94,7 +96,7 @@ var tekenAlles = function () {
 
   // punten en health
 
-};
+}
 
 /**
  * return true als het gameover is
@@ -108,7 +110,7 @@ var checkGameOver = function () {
   } else {
     return false;   
   }
-};
+}
 
 
 
@@ -122,9 +124,6 @@ var checkGameOver = function () {
  * de p5 library, zodra het spel geladen is in de browser
  */
 function setup() {
-  // Maak een canvas (rechthoek) waarin je je speelveld kunt tekenen
-  
-
   // Kleur de achtergrond blauw, zodat je het kunt zien
   background('blue');
 }
@@ -140,14 +139,13 @@ function draw() {
     beweegAlles();
     verwerkBotsing();
     tekenAlles();
-  }
+  
     if (checkGameOver()) {
       spelStatus = GAMEOVER;
       console.log("game over");
       }
+    }
 
-  
-  
   
   if (spelStatus === GAMEOVER) {
     console.log("GAMEOVER");
@@ -158,20 +156,31 @@ function draw() {
     fill(0, 0, 0);
     textSize(30);
     text("press spatie to respawn", 447, 450);
+  }
 
     if (keyIsDown(32)) { //spatie
-    spelStatus === UITLEG;
+    spelStatus = UITLEG;
      }
-
-  }
 
   if (spelStatus === UITLEG) {
     console.log("uitleg");
-    background("lightblue");
-    spelerX = 600;
-    spelStatus === SPELEN;
-    fill("0, 0, 0");
     textSize(40);
-    text("Beweeg de 2 pijlen van links en rechts om je tank te bewegen, druk op de bovenste pijl om een kogel af te vuren. Laat de tanks niet op de grond komen, dan ben je af.");
-  } 
-}
+    fill ("lightblue");
+    rect (0, 0, 1280, 720);
+   
+    fill("red");
+    text("Beweeg de 2 pijlen van links en rechts om je tank te bewegen,", 100, 300);
+    text ("Druk op de bovenste pijl om een kogel af te vuren.", 100, 350);
+    text ("Laat de tanks niet op de grond komen, dan is het GAMEOVER.", 100, 400);
+    fill ("black");
+    text ("Druk op ENTER om te starten", 385, 450);
+  }
+
+    if(keyIsDown(13)) {
+      spelStatus = SPELEN;
+      spelerX = 600;
+      vijandX = 400;
+      vijandY = 40;
+     }
+  }
+
