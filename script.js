@@ -18,12 +18,16 @@ var spelStatus = UITLEG;
 
 const KEY_LEFT = 37;
 const KEY_RIGHT = 39;
+const UP_ARROW = 38;
 
 var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
 
 var vijandX = 400; // x positie vijand
 var vijandY = 40; // y positie vijand
+
+var kogelX = 600; // x positie kogel
+var kogelY = 400; // y positie kogel
 
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
@@ -47,6 +51,12 @@ if (keyIsDown(KEY_RIGHT)) {
  };
 
   // kogel
+  if (keyIsDown(32)) {
+    kogelX = spelerX;
+    kogelY = spelerY; 
+    kogelY = kogelY - 1;
+  };
+ 
 }
 
 /**
@@ -85,7 +95,10 @@ var tekenAlles = function () {
 
   vijandY += 5;
    console.log ("vijandY =" + vijandY);
-  // kogel
+  
+   // kogel
+  fill("purple");
+  ellipse(spelerX, spelerY, 30, 30);
 
   // speler
 

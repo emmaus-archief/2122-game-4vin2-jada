@@ -3,7 +3,6 @@ Deze game is gebaseerd op het template voor 4HV van het Emmauscollege Rotterdam
 ## Mijn spel: shoot or die.
 Gemaakt door:
 - Jada Vredebregt
-- David Ulasi
 
 ### Beschrijving
 Jij bent de tank, het is de bedoeling om de poppetjes die naar beneden komen vallen met eem parachute neer te schieten. Als de poppetjes wel op de grond komen, word je zelf neergeschoten en is het game over.
