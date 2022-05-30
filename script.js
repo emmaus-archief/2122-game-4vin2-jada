@@ -18,7 +18,7 @@ var spelStatus = UITLEG;
 
 const KEY_LEFT = 37;
 const KEY_RIGHT = 39;
-const UP_ARROW = 38;
+const ARROW_UP = 38;
 
 var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
@@ -26,8 +26,9 @@ var spelerY = 600; // y-positie van speler
 var vijandX = 400; // x positie vijand
 var vijandY = 40; // y positie vijand
 
-var kogelX = 600; // x positie kogel
-var kogelY = 400; // y positie kogel
+var kogelX = spelerX; // x positie kogel
+var kogelY = 640; // y positie kogel
+var kogelSchiet = false;
 
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
@@ -38,10 +39,10 @@ var kogelY = 400; // y positie kogel
  */
 var beweegAlles = function () {
   // speler
-if (keyIsDown(KEY_LEFT)) {
+if (keyIsDown(37)) {
   spelerX = spelerX - 8
 };
-if (keyIsDown(KEY_RIGHT)) {
+if (keyIsDown(39)) {
   spelerX = spelerX + 8
 };
 
@@ -51,13 +52,28 @@ if (keyIsDown(KEY_RIGHT)) {
  };
 
   // kogel
-  if (keyIsDown(32)) {
+  if (kogelSchiet === false &&
+    keyIsDown(38)) {
+    kogelSchiet = true;
     kogelX = spelerX;
     kogelY = spelerY; 
-    kogelY = kogelY - 1;
+   };
+
+   if (kogelSchiet === true) {
+   kogelY = kogelY - 5;
+   }
+
+   if (kogelSchiet === true &&
+    kogelY < 0) 
+   // kogelY - vijandY < 50 &&
+    //kogelY - vijandY > -50 &&
+    //kogelX - vijandX < 50 &&
+    //kogelX - vijandX > -50)
+   {
+      kogelSchiet = false; // kogel gaat weg
+    }
+
   };
- 
-}
 
 /**
  * Checkt botsingen
@@ -98,7 +114,7 @@ var tekenAlles = function () {
   
    // kogel
   fill("purple");
-  ellipse(spelerX, spelerY, 30, 30);
+  ellipse(spelerX, kogelY, 30, 30);
 
   // speler
 
