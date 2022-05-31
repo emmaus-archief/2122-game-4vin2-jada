@@ -65,15 +65,11 @@ if (keyIsDown(39)) {
 
    if (kogelSchiet === true &&
     kogelY < 0) 
-   // kogelY - vijandY < 50 &&
-    //kogelY - vijandY > -50 &&
-    //kogelX - vijandX < 50 &&
-    //kogelX - vijandX > -50)
-   {
+  {
       kogelSchiet = false; // kogel gaat weg
     }
 
-  };
+  }
 
 /**
  * Checkt botsingen
@@ -84,6 +80,11 @@ var verwerkBotsing = function () {
   // botsing speler tegen vijand
  
   // botsing kogel tegen vijand
+
+   // kogelY - vijandY < 50 &&
+    //kogelY - vijandY > -50 &&
+    //kogelX - vijandX < 50 &&
+    //kogelX - vijandX > -50;
 
   // update punten en health
   
@@ -98,7 +99,7 @@ var verwerkBotsing = function () {
 var tekenAlles = function () {
   // achtergrond
 
-  createCanvas(1280, 720);
+
   background('lightblue');
 
   fill("green");
@@ -153,6 +154,7 @@ var checkGameOver = function () {
  * de p5 library, zodra het spel geladen is in de browser
  */
 function setup() {
+  createCanvas(1280, 720);
   // Kleur de achtergrond blauw, zodat je het kunt zien
   background('blue');
 }
@@ -175,7 +177,7 @@ function draw() {
       }
     }
 
-  
+ //var tekenGameover = function() {
   if (spelStatus === GAMEOVER) {
     console.log("GAMEOVER");
     fill(0, 0, 0);
@@ -190,8 +192,10 @@ function draw() {
     if (keyIsDown(32)) { //spatie
     spelStatus = UITLEG;
      }
+    
 
-  if (spelStatus === UITLEG) {
+  //var tekenUitleg = function() {
+    if (spelStatus === UITLEG) {
     console.log("uitleg");
     textSize(40);
     fill ("lightblue");
@@ -203,13 +207,14 @@ function draw() {
     text ("Laat de tanks niet op de grond komen, dan is het GAMEOVER.", 100, 400);
     fill ("black");
     text ("Druk op ENTER om te starten", 385, 450);
-  }
-
-    if(keyIsDown(13)) {
+  
+  if(keyIsDown(13)) { // enter
       spelStatus = SPELEN;
       spelerX = 600;
       vijandX = 400;
       vijandY = 40;
+      kogelY = 640;
      }
+    }
   }
 
