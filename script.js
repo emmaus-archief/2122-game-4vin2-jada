@@ -26,7 +26,7 @@ var spelerY = 600; // y-positie van speler
 var vijandX = 400; // x positie vijand
 var vijandY = 40; // y positie vijand
 
-var kogelX = spelerX; // x positie kogel
+var kogelX = 400; // x positie kogel
 var kogelY = 640; // y positie kogel
 var kogelSchiet = false;
 
@@ -59,7 +59,7 @@ if (keyIsDown(39)) {
     kogelY = spelerY; 
    };
 
-   if (kogelSchiet === true) {
+   if (kogelSchiet === true) { // kogel word afgeschoten
    kogelY = kogelY - 5;
    }
 
@@ -80,11 +80,14 @@ var verwerkBotsing = function () {
   // botsing speler tegen vijand
  
   // botsing kogel tegen vijand
-
-   // kogelY - vijandY < 50 &&
-    //kogelY - vijandY > -50 &&
-    //kogelX - vijandX < 50 &&
-    //kogelX - vijandX > -50;
+  if(kogelY - vijandY < 50 &&
+   kogelY - vijandY > -50 &&
+   kogelX - vijandX < 50 &&
+   kogelX - vijandX > -50) {
+     console.log("tegenstander uitgeschakeld");
+  vijandX = random(30, 1260);
+  vijandY = 40;
+}
 
   // update punten en health
   
@@ -214,6 +217,7 @@ function draw() {
       vijandX = 400;
       vijandY = 40;
       kogelY = 640;
+      kogelSchiet = false;
      }
     }
   }
