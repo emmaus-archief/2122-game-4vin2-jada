@@ -29,6 +29,8 @@ var vijandY = 40; // y positie vijand
 var kogelX = 400; // x positie kogel
 var kogelY = 640; // y positie kogel
 var kogelSchiet = false;
+var punt = false;
+var puntenTelling = 0;
 
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
@@ -52,7 +54,7 @@ if (keyIsDown(39)) {
  };
 
   // kogel
-  if (kogelSchiet === false &&
+  if (//kogelSchiet === false &&
     keyIsDown(38)) {
     kogelSchiet = true;
     kogelX = spelerX;
@@ -60,11 +62,13 @@ if (keyIsDown(39)) {
    };
 
    if (kogelSchiet === true) { // kogel word afgeschoten
+    //kogelX = spelerX;
+   // kogelY = 600;
    kogelY = kogelY - 5;
    }
 
    if (kogelSchiet === true &&
-    kogelY < 0) 
+    kogelY < 0 && punt === true) 
   {
       kogelSchiet = false; // kogel gaat weg
     }
@@ -85,24 +89,36 @@ var verwerkBotsing = function () {
    kogelX - vijandX < 50 &&
    kogelX - vijandX > -50) {
      console.log("tegenstander uitgeschakeld");
-  vijandX = random(30, 1260);
-  vijandY = 40;
+  punt = true
+  //vijandX = random(30, 1260);
+  //vijandY = 40;
+   
+
+  if (punt === true){
+    vijandX = random(30, 1260);
+    vijandY = 40;
+    kogelSchiet = false;
+    console.log("plus 1 punt");
+  }
+}
 }
 
-  // update punten en health
+// update punten en health
+/*textSize(20);
+fill(black);
+text("points: + puntenTelling");
+if (punt === true) {
+  puntenTelling + 1
+} */
+
+
   
-  //vijand tegen grond
-
-
-}
 
 /**
  * Tekent spelscherm
  */
 var tekenAlles = function () {
   // achtergrond
-
-
   background('lightblue');
 
   fill("green");
@@ -113,12 +129,14 @@ var tekenAlles = function () {
   fill("black");
   ellipse(vijandX, vijandY, 50, 50); 
 
-  vijandY += 5;
+  vijandY += 3;
    console.log ("vijandY =" + vijandY);
   
    // kogel
-  fill("purple");
+  if (kogelSchiet === true) {
+   fill("purple");
   ellipse(spelerX, kogelY, 30, 30);
+  }
 
   // speler
 
