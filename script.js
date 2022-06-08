@@ -90,7 +90,8 @@ var verwerkBotsing = function () {
      console.log("tegenstander uitgeschakeld");
      kogelSchiet = false;
      console.log("plus 1 punt");
-     puntenTelling = puntenTelling ++;
+     puntenTelling = puntenTelling +1;
+     console.log("piuntenTelling"+puntenTelling);
   vijandX = random(30, 1260);
   vijandY = 40;
   }
