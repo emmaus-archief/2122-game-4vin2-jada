@@ -54,7 +54,7 @@ if (keyIsDown(39)) {
  };
 
   // kogel
-  if (//kogelSchiet === false &&
+  if (kogelSchiet === false &&
     keyIsDown(38)) {
     kogelSchiet = true;
     kogelX = spelerX;
@@ -68,7 +68,7 @@ if (keyIsDown(39)) {
    }
 
    if (kogelSchiet === true &&
-    kogelY < 0 && punt === true) 
+    kogelY < 0) //&& punt === true) 
   {
       kogelSchiet = false; // kogel gaat weg
     }
@@ -81,38 +81,22 @@ if (keyIsDown(39)) {
  * Updatet globale variabelen punten en health
  */
 var verwerkBotsing = function () {
-  // botsing speler tegen vijand
- 
-  // botsing kogel tegen vijand
+
+ // botsing kogel tegen vijand
   if(kogelY - vijandY < 50 &&
    kogelY - vijandY > -50 &&
    kogelX - vijandX < 50 &&
    kogelX - vijandX > -50) {
      console.log("tegenstander uitgeschakeld");
-  punt = true
-  //vijandX = random(30, 1260);
-  //vijandY = 40;
-   
-
-  if (punt === true){
-    vijandX = random(30, 1260);
-    vijandY = 40;
-    kogelSchiet = false;
-    console.log("plus 1 punt");
+     kogelSchiet = false;
+     console.log("plus 1 punt");
+     puntenTelling = puntenTelling ++;
+  vijandX = random(30, 1260);
+  vijandY = 40;
   }
+
 }
-}
 
-// update punten en health
-/*textSize(20);
-fill(black);
-text("points: + puntenTelling");
-if (punt === true) {
-  puntenTelling + 1
-} */
-
-
-  
 
 /**
  * Tekent spelscherm
@@ -146,6 +130,9 @@ var tekenAlles = function () {
   ellipse(spelerX, 630, 10, 10);
 
   // punten en health
+  textSize(20);
+  fill("black");
+  text("points:" + puntenTelling, 1150, 30);
 
 }
 
