@@ -1,6 +1,6 @@
 Deze game is gebaseerd op het template voor 4HV van het Emmauscollege Rotterdam
 
-## Mijn spel: shoot or die.
+## Mijn spel: TAKE THEM DOWN
 Gemaakt door:
 - Jada Vredebregt
 
@@ -20,15 +20,15 @@ Basis: uitleg, spelen, afgaan en punten
         - Zet je code in de functie beweegAlles()
         - Kies de afmeting van speler
         - Gebruik variabalen spelerX en spelerY als middelpunt van de speler
-- [ ] 4. *(pas de volgende stappen in de planning zelf aan)*
+- [x] 4. *(pas de volgende stappen in de planning zelf aan)*
 - [X] x. teken je tegenspeler (vijanden of dingen die je moet pakken of doelen of ...)
-- [ ] x. teken een bal, kogel (als die in je spel zit)
-- [ ] x. beweeg de tegenspeler of je bal
-- [ ] x. zet punten op het scherm 
-- [ ] x. zorg dat je punten kunt scoren
+- [x] x. teken een bal, kogel (als die in je spel zit)
+- [x] x. beweeg de tegenspeler of je bal
+- [x] x. zet punten op het scherm 
+- [x] x. zorg dat je punten kunt scoren
 - [X] x. zorg dat je af kunt
 - [X] x. maak game-over-scherm
-- [ ] x. maak uitlegscherm
+- [x] x. maak uitlegscherm
 
 ### Uitbreidingen 1
 Uitbreiding: *bedenk iets, bijvoorbeeld meer tegenstanders*

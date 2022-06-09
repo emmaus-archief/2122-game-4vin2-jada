@@ -42,15 +42,15 @@ var puntenTelling = 0;
 var beweegAlles = function () {
   // speler
 if (keyIsDown(37)) {
-  spelerX = spelerX - 8
+  spelerX = spelerX - 9
 };
 if (keyIsDown(39)) {
-  spelerX = spelerX + 8
+  spelerX = spelerX + 9
 };
 
  // vijand
  if (vijandY < 620) {
-   vijandY += 1
+   vijandY += 2
  };
 
   // kogel
@@ -62,13 +62,11 @@ if (keyIsDown(39)) {
    };
 
    if (kogelSchiet === true) { // kogel word afgeschoten
-    //kogelX = spelerX;
-   // kogelY = 600;
    kogelY = kogelY - 5;
    }
 
    if (kogelSchiet === true &&
-    kogelY < 0) //&& punt === true) 
+    kogelY < 0) 
   {
       kogelSchiet = false; // kogel gaat weg
     }
@@ -131,9 +129,9 @@ var tekenAlles = function () {
   ellipse(spelerX, 630, 10, 10);
 
   // punten en health
-  textSize(20);
+  textSize(25);
   fill("black");
-  text("points:" + puntenTelling, 1150, 30);
+  text("points: " + puntenTelling, 1150, 30);
 
 }
 
@@ -206,16 +204,24 @@ function draw() {
   //var tekenUitleg = function() {
     if (spelStatus === UITLEG) {
     console.log("uitleg");
-    textSize(40);
+    textSize(35);
     fill ("lightblue");
     rect (0, 0, 1280, 720);
+
    
+
     fill("red");
-    text("Beweeg de 2 pijlen van links en rechts om je tank te bewegen,", 100, 300);
-    text ("Druk op de bovenste pijl om een kogel af te vuren.", 100, 350);
-    text ("Laat de tanks niet op de grond komen, dan is het GAMEOVER.", 100, 400);
+    text("Beweeg de 2 pijlen van links en rechts om je tank te bewegen.", 120, 300);
+    text ("Druk op de bovenste pijl om een kogel af te vuren.", 120, 350);
+    text ("Laat de vliegtuigen niet op de grond komen, dan is het GAMEOVER.", 120, 400);
     fill ("black");
-    text ("Druk op ENTER om te starten", 385, 450);
+    text ("Druk op ENTER om te starten", 420, 500);
+
+    line(440, 207, 850, 207);
+    strokeWeight(4); 
+    fill("black");
+    textSize(45)
+    text("TAKE THEM DOWN", 440, 200);
   
   if(keyIsDown(13)) { // enter
       spelStatus = SPELEN;
