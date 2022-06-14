@@ -199,6 +199,7 @@ function draw() {
     //var tekenGameover = function() {
     if (spelStatus === GAMEOVER) {
         console.log("GAMEOVER");
+        puntenTelling = 0;
         fill(0, 0, 0);
         textSize(50);
         text("GAMEOVER", 460, 400);
@@ -230,7 +231,6 @@ function draw() {
         text("Druk op ENTER om te starten", 420, 500);
 
         line(440, 207, 850, 207);
-        strokeWeight(4);
         fill("black");
         textSize(45)
         text("TAKE THEM DOWN", 440, 200);
@@ -243,7 +243,7 @@ function draw() {
             //Maak de vijandX random om zo ervoor te zorgen dat niet alles vijanden in elkaar zitten
             for(var i = 0; i < vijandAantal; i++){
                 vijandX[i] = random(30, 1260);
-                vijandY[i] = 40;
+                vijandY[i] = 25;
             }
             kogelY = 640;
             kogelSchiet = false;
