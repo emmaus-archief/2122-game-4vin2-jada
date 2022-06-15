@@ -59,7 +59,7 @@ var beweegAlles = function () {
     //als ik dan zeg nummers[2] krijg ik de uitkomst 150, nummers[0] is de uitkomst 50, etc...
     for(var i = 0; i < vijandAantal; i++){
         if (vijandY[i] < 620) {
-            vijandY[i] += 2
+            vijandY[i] += 1,5
         };
     }
 
@@ -99,7 +99,7 @@ var verwerkBotsing = function () {
             kogelSchiet = false;
             console.log("plus 1 punt");
             puntenTelling = puntenTelling + 1;
-            console.log("piuntenTelling" + puntenTelling);
+            console.log("puntenTelling" + puntenTelling);
             vijandX[i] = random(30, 1260);
             vijandY[i] = 40;
         }
@@ -157,9 +157,9 @@ var checkGameOver = function () {
             //console.log("botsing" + aantal)
             return true;
         } else {
-            return false;
         }
     }
+        return false;
 }
 
 
