@@ -57,16 +57,12 @@ var beweegAlles = function () {
     //Een waarde van de array krijg je door een index te gebruiken dat is het nummer dat je tussen [] zet
     //Stel dit is de array var nummers = [50,100,150,200,250]; dit zijn 5 cijfers in een array
     //als ik dan zeg nummers[2] krijg ik de uitkomst 150, nummers[0] is de uitkomst 50, etc...
+    var snelheid = 0.5 + floor(puntenTelling /10); // 0 t/m 9 punten = snelheid 1; 10 t/m 19 punten is snelheid 2 etc
+   
     for(var i = 0; i < vijandAantal; i++){
-        if (vijandY[i] < 620 && puntenTelling <= 10) {
-            vijandY[i] += 1;
+        if (vijandY[i] < 620) {
+            vijandY[i] += snelheid;
         };
-        if (vijandY[i] < 620 && puntenTelling >= 10 && puntenTelling <= 20) {
-            vijandY[i] += 1,5;
-        };
-        if (vijandY[i] < 620 && puntenTelling <= 30 && puntenTelling >= 20){
-            vijandY[i] += 2;
-        }
     }
 
     // kogel
